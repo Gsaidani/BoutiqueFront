@@ -1,0 +1,19 @@
+
+  <h1 mat-dialog-title>Nouveau Produit</h1>
+  <div mat-dialog-content>   
+    <mat-form-field appearance="fill" class="designation-produit">
+        <mat-label>produit</mat-label>
+        <input matInput [(ngModel)]="data.designation">
+      </mat-form-field>
+    <mat-form-field appearance="fill" class="prix-produit">
+      <mat-label>Prix</mat-label>
+      <input type="number" matInput [(ngModel)]="data.prixUnitaire">
+    </mat-form-field>   
+  
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Annuler</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial [disabled]="
+    !this.data.designation||
+    !this.data.prixUnitaire ">Valider</button>
+  </div>

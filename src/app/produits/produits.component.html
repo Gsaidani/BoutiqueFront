@@ -1,0 +1,35 @@
+<div class="produit-display">
+    <div class="produit-menu">
+        
+    
+        <div class="ajout-produit">
+            
+           
+                <span  
+                matTooltip="Ajouter nouveau produit"
+                matTooltipPosition="left">
+                    <mat-icon 
+                    class="add-label" 
+                    (click)="openDialogNewProduit()" 
+                   > add_box </mat-icon>
+                </span>
+            
+        </div>
+        
+       
+
+    </div>
+    <div class="table-produit"  *ngIf="produitMatData.data && produitMatData.data.length > 0">
+        <div class="title">
+            Liste des produits : 
+        </div>
+        <app-produits-table 
+            [produitData]="produitMatData.data" [colonnesTableauProduits]="colonnesTableauProduits"
+            (newPrixUnitaire)="modifyPrixUnitaire($event)" (canceledProduit)="onCanceledProduit($event)"
+            (modifiedPrice)="onModifiedProduit($event)">
+        </app-produits-table>
+    </div>
+    
+    
+
+</div>

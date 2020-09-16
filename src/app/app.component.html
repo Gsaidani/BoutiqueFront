@@ -1,0 +1,24 @@
+<div class="container" *ngIf="userIsConnected">
+
+    <div class="menu">
+
+        <div>
+            <button routerLink="/produits">Produits</button>
+        </div>
+        <div>
+            <button routerLink="/ventes">Ventes</button>
+        </div>
+        <div *ngIf="userIsAdmin">
+            <button routerLink="/user">User</button>
+        </div>
+
+
+    </div>
+
+    <div class="deconnexion">
+        <button routerLink="/login" (click)="onDeconnectUser()">Déconnexion</button>
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>

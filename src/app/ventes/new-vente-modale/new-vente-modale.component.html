@@ -1,0 +1,33 @@
+
+  <h1 mat-dialog-title>Nouvelle vente</h1>
+  <div mat-dialog-content>   
+      
+        <mat-form-field appearance="fill">
+          <mat-label>Articles</mat-label>
+          <mat-select [(ngModel)]="data.articleChoisi">
+            <mat-option *ngFor="let article of data.listArticles" [value]="article.designation" >
+              {{article.designation}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+     
+    
+    <mat-form-field>
+      <mat-label>quantite</mat-label>
+      <input type="number" matInput [(ngModel)]="data.listVente.quantite">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="date-vente">
+      <mat-label>date vente</mat-label>
+      <input matInput [matDatepicker]="dateVente" [(ngModel)]="data.listVente.dateVente">
+      <mat-datepicker-toggle matSuffix [for]="dateVente"></mat-datepicker-toggle>
+      <mat-datepicker #dateVente></mat-datepicker>
+    </mat-form-field>
+  
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Annuler</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial [disabled]="
+    !this.data.listArticles ||
+    !this.data.listVente.quantite || 
+    !this.data.listVente.dateVente">Valider</button>
+  </div>

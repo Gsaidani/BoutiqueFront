@@ -1,0 +1,105 @@
+<div class="table-user-container">
+    <table
+      mat-table
+      class="tableau-user"
+      [dataSource]="userData"
+      matSort
+    >
+      <tr mat-header-row *matHeaderRowDef="colonnesTableauUser"></tr>
+      <tr mat-row *matRowDef="let row; columns: colonnesTableauUser"></tr>
+    
+      <ng-container matColumnDef="nom">
+        <th class="nom" mat-header-cell *matHeaderCellDef>Nom</th>
+        <td mat-cell *matCellDef="let user">
+          <div *ngIf="user.nom">{{ user.nom }}</div>
+    
+          <div *ngIf="!user.nom" class="empty">—</div>
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="prenom">
+        <th class="prenom" mat-header-cell *matHeaderCellDef>
+          Prénom
+        </th>
+    
+        <td mat-cell *matCellDef="let user">
+          <div *ngIf="user.prenom">{{ user.prenom }}</div>
+    
+          <div *ngIf="!user.prenom" class="empty">—</div>
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="identifiant">
+        <th class="identifiant" mat-header-cell *matHeaderCellDef>Identifiant</th>
+        <td mat-cell *matCellDef="let user">
+          <div>{{user.identifiant}} </div>
+          <div *ngIf="!user.identifiant" class="empty">—</div>
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="password">
+        <th class="password" mat-header-cell *matHeaderCellDef>password</th>
+        <td mat-cell *matCellDef="let user">
+          <div *ngIf="user.password">{{ user.password }}</div>
+          <div *ngIf="!user.password" class="empty">—</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dateInscription">
+        <th class="dateInscription" mat-header-cell *matHeaderCellDef>Date Inscription</th>
+        <td mat-cell *matCellDef="let user">
+          <div *ngIf="user.dateInscription">{{ user.dateInscription }}</div>
+          <div *ngIf="!user.dateInscription" class="empty">—</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="typeUser">
+        <th class="typeUser" mat-header-cell *matHeaderCellDef>typeUser</th>
+        <td mat-cell *matCellDef="let user">
+          <div *ngIf="user.typeUser">{{ user.typeUser }}</div>
+          <div *ngIf="!user.typeUser" class="empty">—</div>
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="modifyUser">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="modify-user"
+        ></th>
+    
+        <td
+          mat-cell
+          *matCellDef="let user"
+          class="modify-user-label"
+          (click)="openDialogModification(user)"
+        >
+          <span
+            *ngIf="true"
+           
+            ><mat-icon class="modify-label"> create </mat-icon></span
+          >
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="deleteUser">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="delete-user"
+        ></th>
+    
+        <td
+          mat-cell
+          *matCellDef="let user"
+          class="cancel-user-label"
+          (click)="onDeleteUser($event, user)"
+        >
+          <span
+            *ngIf="true"
+            ><mat-icon class="delete-label"> delete </mat-icon></span
+          >
+        </td>
+      </ng-container>     
+        
+    </table>

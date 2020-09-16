@@ -1,0 +1,52 @@
+:host {
+   
+  padding: 55px;
+  display: block;
+
+}
+.vente-display{
+    display: inline-block; 
+    padding: 15px;
+    width: 800px;
+}
+.ajout-vente{
+    text-align: end;  
+   
+   
+    
+}
+
+.date-picker-validation{
+    border-style: groove;
+    display: block; 
+    justify-content:center; 
+    align-items:center;
+    padding-top: 10px;
+    
+
+}
+
+.date-fin{
+    padding-left: 10px;
+}
+.date-debut{
+    padding-left: 10px;
+}
+.add-label{
+    padding-right: 25px;
+    cursor: pointer;
+    color: blue;
+    font-size:55px;
+}
+
+.date-validation{
+    padding: 10px;
+}
+.tableVente{
+    width: 100%;
+    padding: 15px;
+}
+.title{
+    font-weight: bold;
+    padding-bottom: 25px;
+}

@@ -1,0 +1,50 @@
+
+  <h1 mat-dialog-title>Nouveau utilisateur</h1>
+  <div mat-dialog-content>
+      
+    <mat-form-field>
+        <mat-label>Nom</mat-label>
+        <input matInput [(ngModel)]="data.user.nom">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Prénom</mat-label>
+        <input matInput [(ngModel)]="data.user.prenom">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Identifiant</mat-label>
+        <input matInput [(ngModel)]="data.user.identifiant">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="data.user.password">
+      </mat-form-field>
+
+      
+
+      <mat-form-field>
+        <mat-label>Type</mat-label>
+        <mat-select [(ngModel)]="data.user.typeUser" >
+            <mat-option value="client">Client</mat-option>
+            <mat-option value="admin">Admin</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    
+    <mat-form-field appearance="fill" class="date">
+      <mat-label>Date d'inscription</mat-label>
+      <input matInput [matDatepicker]="date" [(ngModel)]="data.user.dateInscription">
+      <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+      <mat-datepicker #date></mat-datepicker>
+    </mat-form-field>
+  
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Annuler</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial [disabled]="
+    !this.data.user.nom ||
+    !this.data.user.prenom || 
+    !this.data.user.identifiant || 
+    !this.data.user.password || 
+    !this.data.user.typeUser ||
+    !this.data.user.dateInscription">Valider</button>
+  </div>

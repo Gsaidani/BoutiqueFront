@@ -1,0 +1,61 @@
+<div class="vente-display">
+  <div class="date-picker-validation">
+
+    <div class="date-picker">
+      <form [formGroup]="formDate">
+        <mat-form-field appearance="fill" class="date-debut">
+          <mat-label>début</mat-label>
+          <input matInput [matDatepicker]="dateDebut" formControlName="dateDebut" [(ngModel)]="dateDebutModel">
+          <mat-datepicker-toggle matSuffix [for]="dateDebut"></mat-datepicker-toggle>
+          <mat-datepicker #dateDebut></mat-datepicker>
+        </mat-form-field>
+        
+
+        <mat-form-field appearance="fill" class="date-fin">
+          <mat-label>fin</mat-label>
+          <input matInput [matDatepicker]="dateFin" formControlName="dateFin" [(ngModel)]="dateFinModel">
+          <mat-datepicker-toggle matSuffix [for]="dateFin"></mat-datepicker-toggle>
+          <mat-datepicker #dateFin></mat-datepicker>
+        </mat-form-field>
+      </form>
+
+    </div>
+    <div class="date-validation">
+      <button class="search-by-date" (click)="onSearchByDate()" [disabled]="
+      !this.dateDebutModel ||
+      !this.dateFinModel">
+        Chercher par date
+      </button>
+
+
+    </div>
+
+  </div>
+  <div class="ajout-vente">
+    
+    <div>
+      <span  
+      matTooltip="Ajouter nouvelle vente"
+      matTooltipPosition="left">
+        <mat-icon 
+        class="add-label" 
+        (click)="openDialogNewVente()"> add_box </mat-icon>
+      </span>
+    </div>
+
+  </div>
+
+
+</div>
+<div class="tableVente"  *ngIf="ventetMatData.data && ventetMatData.data.length > 0">
+  <div class="title">
+      Liste des ventes : 
+  </div>
+  <app-ventes-table 
+[venteData]="ventetMatData.data"
+  [colonnesTableauVentes]="colonnesTableauVentes" 
+  (numberArticleChoice)="modifyArticleNumber($event)"
+  (canceledVente)="onCanceledVente($event)" 
+  (modifiedQuantite)="onModifiedVente($event)">
+</app-ventes-table>
+</div>

@@ -1,0 +1,40 @@
+<div  class="bienvenue">
+  <h1> Bienvenue </h1>
+  
+</div>
+<div *ngIf="true" class="connexion-container">
+  <div class="alert" *ngIf="mode==1">
+<strong>Bad Credentials!</strong> invalid username or password
+  </div>
+  <div class="data-container">
+
+
+    <form [formGroup]="formConnexion">
+      <mat-form-field appearance="fill" class="identifiant">
+        <mat-label>Identifiant</mat-label>
+        <div>
+          <input type="text" matInput formControlName="id">
+        </div>
+
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="mdp">
+        <mat-label>Mot de passe</mat-label>
+        <div>
+          <input type="password" matInput formControlName="mdp">
+        </div>
+
+      </mat-form-field>
+    </form>
+
+  </div>
+
+  <div class="validation">
+    <button (click)="onGetConnexion()" [disabled]="!this.formConnexion.value.mdp || !this.formConnexion.value.id">
+      Connexion
+    </button>
+
+
+  </div>
+
+</div>

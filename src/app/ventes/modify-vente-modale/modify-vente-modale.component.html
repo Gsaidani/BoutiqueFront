@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Nouvelle quantité</h1>
+  <div mat-dialog-content>
+    
+    <mat-form-field>
+      <mat-label>quantite</mat-label>
+      <input type="number" matInput [(ngModel)]="data.quantite">
+    </mat-form-field>
+    <!-- <form [formGroup]="formDate">
+      <mat-form-field appearance="fill" class="date-debut">
+        <mat-label>début</mat-label>
+        <input matInput [matDatepicker]="dateDebut" formControlName="dateDebut">
+        <mat-datepicker-toggle matSuffix [for]="dateDebut"></mat-datepicker-toggle>
+        <mat-datepicker #dateDebut></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="date-fin">
+        <mat-label>fin</mat-label>
+        <input matInput [matDatepicker]="dateFin" formControlName="dateFin">
+        <mat-datepicker-toggle matSuffix [for]="dateFin"></mat-datepicker-toggle>
+        <mat-datepicker #dateFin></mat-datepicker>
+      </mat-form-field>
+    </form> -->
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Annuler</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
+  </div>

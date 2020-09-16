@@ -1,0 +1,107 @@
+<div class="table-vente-container">
+<table
+  mat-table
+  class="tableau-vente"
+  [dataSource]="venteData"
+  matSort
+>
+  <tr mat-header-row *matHeaderRowDef="colonnesTableauVentes"></tr>
+  <tr mat-row *matRowDef="let row; columns: colonnesTableauVentes"></tr>
+
+  <ng-container matColumnDef="article">
+    <th class="article" mat-header-cell *matHeaderCellDef>Article</th>
+    <td mat-cell *matCellDef="let vente">
+      <div *ngIf="vente.article.designation">{{ vente.article.designation }}</div>
+
+      <div *ngIf="!vente.article.designation" class="empty">—</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prixArticle">
+    <th class="prixArticle" mat-header-cell *matHeaderCellDef>
+      Prix article
+    </th>
+
+    <td mat-cell *matCellDef="let vente">
+      <div *ngIf="vente.article.prixUnitaire">{{ vente.article.prixUnitaire }}</div>
+
+      <div *ngIf="!vente.article.prixUnitaire" class="empty">—</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="quantite">
+    <th class="quantite" mat-header-cell *matHeaderCellDef>Quantité</th>
+    <td mat-cell *matCellDef="let vente">
+      <div *ngIf="vente.quantite">{{ vente.quantite }}</div>
+      <div *ngIf="!vente.quantite" class="empty">—</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="total">
+    <th class="total" mat-header-cell *matHeaderCellDef>Total</th>
+    <td mat-cell *matCellDef="let vente">
+      <div>{{ vente.quantite * vente.article.prixUnitaire}} </div>
+      <div *ngIf="!vente.quantite || !vente.article.prixUnitaire" class="empty">—</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th class="date" mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let vente">
+      <div *ngIf="vente.dateVente">{{ vente.dateVente | date : 'dd/MM/yyyy' }}</div>
+      <div *ngIf="!vente.dateVente" class="empty">—</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="modifyVente">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      class="modify-vente"
+    ></th>
+
+    <td
+      mat-cell
+      *matCellDef="let vente"
+      class="modify-vente-label"
+      (click)="openDialogModification(vente)"
+    >
+      <span
+        *ngIf="true"
+       
+        ><mat-icon class="modify-label"> create </mat-icon></span
+      >
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="deleteVente">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      class="delete-vente"
+    ></th>
+
+    <td
+      mat-cell
+      *matCellDef="let vente"
+      class="cancel-vente-label"
+      (click)="onDeleteVente($event, vente)"
+    >
+      <span
+        *ngIf="true"
+        ><mat-icon class="delete-label"> delete </mat-icon></span
+      >
+    </td>
+  </ng-container>
+
+
+  
+    
+</table>
+<div class="container-operations">
+  <span class="total-ventes">
+    Total ventes : {{totalVentes}}
+  </span>
+</div>
+
+</div>

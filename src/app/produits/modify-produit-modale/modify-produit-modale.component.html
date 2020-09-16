@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Nouveau prix</h1>
+  <div mat-dialog-content>
+    
+    <mat-form-field>
+      <mat-label>prix</mat-label>
+      <input type="number" matInput [(ngModel)]="data.prix">
+    </mat-form-field>
+   
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Annuler</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
+  </div>

@@ -1,0 +1,37 @@
+:host {
+   
+    padding: 55px;
+    display: block;
+  
+  }
+  .produit-display{
+      display: inline-block; 
+      padding: 15px;
+      padding: 15px;
+      width: 800px;
+  }
+  .ajout-produit{
+      text-align: end;  
+     
+     
+      
+  }
+  
+  .add-label{
+      padding-right: 25px;
+      cursor: pointer;
+      color: blue;
+      font-size:55px;
+  }
+  
+.table-produit{
+
+    width: 100%;
+    padding: 15px;
+    
+
+}
+.title{
+    padding-bottom: 25px;
+    font-weight: bold;
+}

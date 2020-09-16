@@ -1,0 +1,50 @@
+<div class="user-display">
+    <div class="user-research-validation">
+  
+      <div class="user-reserch">
+        
+          <mat-form-field appearance="fill" class="mot-cle">
+            <mat-label>mot clé</mat-label>
+            <input type="text" matInput [(ngModel)]="motCle">
+          </mat-form-field> 
+      </div>
+      <div class="user-validation">
+        <button class="search-by-mc" 
+        (click)="onSearchByMC(motCle)"
+        [disabled]="!motCle">
+          Chercher par mot clé
+        </button>
+  
+      </div>
+  
+    </div>
+    <div class="ajout-user">
+      
+      <div>
+        <span  
+        matTooltip="Ajouter un nouveau utilisateur"
+        matTooltipPosition="left">
+          <mat-icon 
+          class="add-label" 
+          (click)="openDialogNewUser()"> add_box </mat-icon>
+        </span>
+      </div>
+  
+    </div>
+  
+  
+  </div>
+  <div class="table-user"  *ngIf="userMatData.data && userMatData.data.length > 0" >
+    <div class="title">
+        Liste des utilisateurs : 
+    </div>
+    <app-user-table  
+  
+  [userData]="userMatData.data"
+    [colonnesTableauUser]="colonnesTableauUser" 
+    (canceledUser)="onCanceledUser($event)" 
+    (modifiedUser)="onModifiedUser($event)">  
+  </app-user-table>
+  </div>
+
+  

@@ -1,0 +1,43 @@
+.tableau-vente{
+  width:80%;
+  
+ 
+}
+
+
+
+
+.modify-vente{
+  padding-left: 20px;
+  
+  
+}
+.delete-label{
+  cursor: pointer;
+  color : red;
+}
+
+.modify-label{
+  cursor: pointer;
+  color : blue;
+
+}
+
+.mat-header-cell{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.table-vente-container{
+  display: block; 
+    justify-content:center; 
+    align-items:center;
+}
+
+.container-operations{
+  text-align: right;
+  width:70%;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 25px;
+}

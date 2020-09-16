@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.bienvenue{
+    
+    text-align: center;
+    margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  
+}
+
+.auth{
+    text-align: end;
+    padding: 5px;
+}
+
+.entete{
+    display: flex;
+}

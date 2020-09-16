@@ -1,0 +1,24 @@
+.tableau-user{
+    width: 80%;
+}
+
+.modify-user{
+    padding-left: 20px;
+    
+    
+}
+.delete-label{
+    cursor: pointer;
+    color : red;
+}
+
+.modify-label{
+    cursor: pointer;
+    color : blue;
+
+}
+
+.mat-header-cell{
+    font-weight: bold;
+    font-size: 14px;
+}

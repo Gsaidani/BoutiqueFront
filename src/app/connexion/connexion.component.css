@@ -1,0 +1,32 @@
+:host {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+
+}
+.connexion-container{
+    display: block; justify-content:center; align-items:center;padding-top: 100px;
+}
+
+.data-container{
+    display: grid; justify-content:center; align-items:center;
+}
+
+.identifiant {
+    display: block;
+}
+
+.validation {
+    text-align: right;
+}
+
+.bienvenue{
+    
+    text-align: center;
+    margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  
+}

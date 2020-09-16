@@ -1,0 +1,41 @@
+:host {
+   
+        padding: 55px;
+        display: block;
+      
+      }
+      .user-display{
+          display: inline-block; 
+          padding: 15px;
+          padding: 15px;
+          width: 800px;
+      }
+      .ajout-user{
+          text-align: end;  
+         
+         
+          
+      }
+      
+      .add-label{
+          padding-right: 25px;
+          cursor: pointer;
+          color: blue;
+          font-size:55px;
+      }
+      
+.table-user{
+    
+        width: 100%;
+        padding: 15px;
+    
+}
+.user-research-validation{
+        padding: 10px;
+        border-style: groove;
+
+}
+.title{
+    font-weight: bold;
+    padding-bottom: 25px;
+}
