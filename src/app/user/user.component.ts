@@ -52,7 +52,7 @@ export class UserComponent implements OnInit {
     if(mc){
       this.motCleForDelete=mc;
       this.service.getUserByMC(mc).subscribe(
-        (user: User[]) => {
+        (user: any) => {
          
           this.userMatData.data = user.content;
           
@@ -165,7 +165,7 @@ export class UserComponent implements OnInit {
           this.userMatData.data = users;
           
           this.service.getUserByMC(newUser.nom).subscribe(
-            (user: User[]) => {
+            (user: any) => {
               
               this.userMatData.data = user.content;
             

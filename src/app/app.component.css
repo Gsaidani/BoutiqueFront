@@ -1,7 +1,7 @@
 .container{
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    
 }
 .menu{
     display: flex;
@@ -25,4 +25,25 @@
 
 .entete{
     display: flex;
+}
+
+.userInformation{
+    display: flex;
+    justify-content: space-between;
+    text-align: end;
+    
+}
+.deconnexion{
+    
+    text-align: end;
+    
+}
+.bonjour{
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.prenom,.nom{
+    text-transform:uppercase;
+    padding-right: 5px;
 }

@@ -1,3 +1,4 @@
+<app-root></app-root>
 <div class="vente-display">
   <div class="date-picker-validation">
 
@@ -52,7 +53,7 @@
       Liste des ventes : 
   </div>
   <app-ventes-table 
-[venteData]="ventetMatData.data"
+  [venteData]="ventetMatData.data"
   [colonnesTableauVentes]="colonnesTableauVentes" 
   (numberArticleChoice)="modifyArticleNumber($event)"
   (canceledVente)="onCanceledVente($event)" 

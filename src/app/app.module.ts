@@ -51,6 +51,12 @@ const routes: Routes = [
   {
     path: 'produits',
     canActivate: [AuthGuard],
+    // children: [
+    //   {
+    //     path: ':home',
+    //     component: AppComponent,
+    //   },
+    // ],
     component: ProduitsComponent
   },
   {
@@ -91,7 +97,7 @@ const routes: Routes = [
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes,{useHash : true}),
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     MatTableModule,

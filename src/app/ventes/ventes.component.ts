@@ -145,7 +145,7 @@ export class VentesComponent implements OnInit {
 
   public saveNewVente(vente: Vente, dateVente: String) {
     this.service.saveVente(vente, dateVente).subscribe(
-      (ventes: Vente[]) => {
+      (ventes: any) => {
         this.ventetMatData.data = ventes.content;
       },
       error => {
@@ -158,7 +158,7 @@ export class VentesComponent implements OnInit {
 
   public modifySelectedVente(vente: Vente) {
     this.service.modifyVente(vente).subscribe(
-      (ventes: Vente[]) => {
+      (ventes: any) => {
         this.ventetMatData.data = ventes.content;
       },
       error => {
@@ -172,7 +172,7 @@ export class VentesComponent implements OnInit {
   public deleteVenteLigne(vente : Vente) {
     
       this.service.deleteVente(vente).subscribe(
-        (ventes: Vente[]) => {
+        (ventes: any) => {
           this.ventetMatData.data = ventes.content;
         },
         error => {
@@ -188,7 +188,7 @@ export class VentesComponent implements OnInit {
     //console.log("this.idUser : ", this.idUser);
     this.service.getVentesByDate(this.idUser,d1, d2).subscribe(
       
-      (ventes: Vente[]) => {
+      (ventes: any) => {
         if(ventes){
           this.ventetMatData.data = ventes.content;
         }
@@ -205,6 +205,8 @@ export class VentesComponent implements OnInit {
     window.location.href = '/ventes';
 
   }
+
+  modifyArticleNumber(articleNumber : any){}
 
   onSearchByDate() {
 

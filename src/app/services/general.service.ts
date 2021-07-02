@@ -79,7 +79,7 @@ public saveNewUser(user: User): Observable<any> {
 
 public deleteUser(user: User): Observable<any> {
   const url = this.host+`/user/delete/${user.id}`;
-  return this.http.delete(url, this.requestOptions,[]);
+  return this.http.delete(url, this.requestOptions);
 }
 
 public modifyUser(user: User): Observable<any> {
@@ -124,7 +124,7 @@ public getAllArticles(idUser: number): Observable<any> {
   public deleteVente(vente: Vente): Observable<any> {
   
     const url = this.host+`vente/delete/${vente.id}`;
-    return this.http.delete(url,this.requestOptions,[]);
+    return this.http.delete(url,this.requestOptions);
   }
 
   public saveProduit(produit: Produit): Observable<any> {
@@ -145,7 +145,7 @@ public getAllArticles(idUser: number): Observable<any> {
 
   public deleteProduit(produit: Produit): Observable<any> {
     const url = this.host+`produit/delete/${produit.id}?idUser=${produit.user.id}`;
-    return this.http.delete(url,this.requestOptions,[]);
+    return this.http.delete(url,this.requestOptions);
   }
 
 
@@ -236,7 +236,6 @@ this.router.navigate(['/home']);
 
   logout() {
     console.log('Tentative de déconnexion');
-
     this.clearUser();
     this.router.navigate(['/login']);
   }
@@ -250,7 +249,7 @@ this.router.navigate(['/home']);
     let decodedToken = this.getDecodedAccessToken(this.jwtToken);
     console.log("token : ", decodedToken);
     //return JSON.parse(decodedToken.roles[0].authority);
-    return decodedToken.roles[0].authority;
+    return decodedToken?.roles[0].authority;
   }
 
   setUser(user: User,rolesUser:any) {
@@ -259,11 +258,19 @@ this.router.navigate(['/home']);
 
     localStorage.setItem('user', JSON.stringify(user.id));
     localStorage.setItem('role', JSON.stringify(rolesUser));   
-
   }
 
   clearUser() {
     this.jwtToken=null;
+    const items = this.user$.value;
+      items.connected=false;
+      items.typeUser="";
+      items.prenom="";
+      items.nom="";
+      
+      // items[index].onClick = 'fn';
+       this.user$.next({...items});
+    console.log("observable : ", items);
     localStorage.removeItem('user');
     localStorage.removeItem('role');
     localStorage.removeItem('token');

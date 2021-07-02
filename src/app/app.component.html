@@ -1,4 +1,5 @@
-<div class="container" *ngIf="userIsConnected">
+<div class="container" *ngIf="this.userIsConnected">
+   
 
     <div class="menu">
 
@@ -11,14 +12,25 @@
         <div *ngIf="userIsAdmin">
             <button routerLink="/user">User</button>
         </div>
-
-
-    </div>
-
-    <div class="deconnexion">
-        <button routerLink="/login" (click)="onDeconnectUser()">Déconnexion</button>
+        
 
     </div>
+    
+    <div class="userInformation">
+        <div class="deconnexion">
+        
+            <div>
+                <button routerLink="/login" (click)="onDeconnectUser()">Déconnexion</button>
+    
+            </div>
+            
+        </div>
+        <div><p class="bonjour">Bonjour</p></div>
+        <div><p class="prenom">{{this.service.user$.value.prenom}}</p></div>
+        <div><p class="nom">{{this.service.user$.value.nom}}</p></div> 
+
+    </div>
+    
 </div>
 
 <router-outlet></router-outlet>

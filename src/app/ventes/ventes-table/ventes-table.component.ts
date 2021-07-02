@@ -36,7 +36,8 @@ export class VentesTableComponent implements OnInit {
 
   ngOnChanges(): void{
     this.totalVentes=0;
-    this.venteData.forEach(element => {
+    const venteTableData= Array.from(this.venteData.data);
+    venteTableData.forEach(element => {
       
       this.totalVentes+=(element.article.prixUnitaire*element.quantite)
       

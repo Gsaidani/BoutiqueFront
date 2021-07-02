@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: GeneralService,
+    public service: GeneralService,
     private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -30,13 +30,23 @@ export class AppComponent implements OnInit {
     // this.loginSession = localStorage.getItem("user.");
     // this.mdpSession = localStorage.getItem("mdp");
     // this.typeUser = localStorage.getItem("typeUser");
-    if(this.service.getUser()){
+    if(this.service.getUserRole()){
       this.userIsConnected=true;
 
     }
-    if(this.service.hasAnyRole("admin")){
+    if(this.service.getUserRole()==="admin"){
       //console.log("role : ",localStorage.getItem("role")[0]);
+      this.userIsConnected=true;
       this.userIsAdmin=true;
+      const items = this.service.user$.value;
+      items.connected=true;
+      items.typeUser="admin";
+      items.prenom="ghassen";
+      items.nom="saidani";
+      
+      // items[index].onClick = 'fn';
+       this.service.user$.next({...items});
+       console.log("observable : ", items);
 
     }
 
@@ -51,24 +61,42 @@ export class AppComponent implements OnInit {
   }
 
   ngOnChange(){
-    // if(window.location.href !== '/login'){
-    //   this.userIsConnected=true;
-    // }
-
-    if(this.service.getUser()){
+   // this.loginSession = localStorage.getItem("user.");
+    // this.mdpSession = localStorage.getItem("mdp");
+    // this.typeUser = localStorage.getItem("typeUser");
+    if(this.service.getUserRole()){
       this.userIsConnected=true;
 
     }
-    if(this.service.hasAnyRole("admin")){
-      console.log("role : ",localStorage.getItem("role")[0]);
+    if(this.service.getUserRole()==="admin"){
+      //console.log("role : ",localStorage.getItem("role")[0]);
+      this.userIsConnected=true;
       this.userIsAdmin=true;
+      const items = this.service.user$.value;
+      items.connected=true;
+      items.typeUser="admin";
+      items.prenom="ghassen";
+      items.nom="saidani";
+      
+      // items[index].onClick = 'fn';
+       this.service.user$.next({...items});
+       console.log("observable : ", items);
 
     }
+
+    // if(this.service.user$.type==this.admin){
+    //   this.userIsAdmin=true;
+
+    // }
+    // if(window.location.href !== '/login'){
+    //   this.userIsConnected=true;
+    // }
   }
   
   onDeconnectUser(){
     this.service.logout();
     this.userIsConnected=false;
+    this.userIsAdmin=false;
       // localStorage.removeItem("login");
       // localStorage.removeItem("mdp");
       // localStorage.removeItem("typeUser");

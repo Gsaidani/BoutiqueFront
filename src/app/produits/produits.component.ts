@@ -38,14 +38,14 @@ export class ProduitsComponent implements OnInit {
     protected toaster: ToastrService) { }
 
   ngOnInit(): void {
-    this.actualUserId = this.service.getUser();
+    this.actualUserId = this.service.getUser(null,null);
   
     this.getListOfArticle(this.actualUserId);
   }
 
   getListOfArticle(idUser : number) {
     this.service.getAllArticles(idUser).subscribe(
-      (produits: Produit[]) => {
+      (produits: any) => {
         this.produitMatData.data = produits.content;
       },
       error => {
@@ -58,7 +58,7 @@ export class ProduitsComponent implements OnInit {
   
   public modifyPrixUnitaire(produit: Produit) {
     this.service.modifyProduit(produit).subscribe(
-      (produits: Produit[]) => {
+      (produits: any) => {
         this.produitMatData.data = produits.content;
       },
       error => {
@@ -73,7 +73,7 @@ export class ProduitsComponent implements OnInit {
   public deleteProduitLigne(produit: Produit) {
     
     this.service.deleteProduit(produit).subscribe(
-      (produits: Produit[]) => {
+      (produits: any) => {
         this.produitMatData.data = produits.content;
       },
       error => {
@@ -150,7 +150,7 @@ export class ProduitsComponent implements OnInit {
 
   public saveNewProduit(produit: Produit) {
     this.service.saveProduit(produit).subscribe(
-      (produits: Produit[]) => {
+      (produits: any) => {
        
         this.produitMatData.data = produits.content;
       },

@@ -1,6 +1,6 @@
 :host {
    
-    padding: 55px;
+    padding: 10px;
     display: block;
   
   }
@@ -11,8 +11,7 @@
       width: 800px;
   }
   .ajout-produit{
-      text-align: end;  
-     
+      text-align: end;      
      
       
   }
