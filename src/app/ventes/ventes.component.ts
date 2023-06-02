@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Vente, Produit, User } from '../models/models.component';
+import { Vente, Produit} from '../models/models.component';
+import { User } from '../models/models.component';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { isNullOrUndefined } from 'util';
 import { MatSelectChange } from '@angular/material/select';
 import { MatOption } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -209,6 +209,7 @@ export class VentesComponent implements OnInit {
   modifyArticleNumber(articleNumber : any){}
 
   onSearchByDate() {
+    /*
 
     this.dateDebut = this.formDate.get('dateDebut').value.toLocaleString('FR', 'yyyy-MM-dd').split(' ')[0];
     console.log(this.dateDebut);
@@ -219,6 +220,7 @@ export class VentesComponent implements OnInit {
     if (!isNullOrUndefined(this.dateDebut) && !isNullOrUndefined(this.dateFin)) {
       this.getVentes(this.dateDebut, this.dateFin)
     }
+    */
 
   }
 

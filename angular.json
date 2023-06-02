@@ -139,5 +139,8 @@
       }
     }
   },
-  "defaultProject": "labaraka"
+  "defaultProject": "labaraka",
+  "cli": {
+    "analytics": false
+  }
 }

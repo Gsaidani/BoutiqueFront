@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { User, Type } from '../models/models.component';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
+import { User } from '../models/models.component';
 import { NewUserModaleComponent } from './new-user-modale/new-user-modale.component';
 import { FormGroup, FormControl } from '@angular/forms';
 import { GeneralService } from '../services/general.service';

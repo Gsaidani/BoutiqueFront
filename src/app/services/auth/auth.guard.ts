@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { isNull } from 'util';
 import { GeneralService } from '../general.service';
 
 @Injectable({
@@ -16,7 +15,9 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     // Récupération de l'utilisateur connecté
-    const isLoggedIn = !isNull(localStorage.getItem('token'));
+    // const isLoggedIn = !isNull(localStorage.getItem('token'));
+    const isLoggedIn = null;
+
 
     if (!isLoggedIn) {
       // Si pas d'utilisateur connecté : redirection vers la page de login

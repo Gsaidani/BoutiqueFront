@@ -1,4 +1,4 @@
-export declare class Vente {
+export class Vente {
   id: number;
   article: Produit;
   quantite: number;
@@ -6,14 +6,14 @@ export declare class Vente {
   
 }
 
-export declare class Produit {
+export class Produit {
   id: number;
   designation: string;
   prixUnitaire: number;
   user : User;
 }
 
-export declare class User {
+export class User {
   id: number;
   nom: string;
   prenom: string;
@@ -24,7 +24,7 @@ export declare class User {
   connected?:boolean;
 
 }
-export declare enum Type {
+export enum Type {
   admin,
   client
 }

@@ -122,6 +122,6 @@ const routes: Routes = [
   { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
   JwtHelperService],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationPopupComponent]
+  // entryComponents: [ConfirmationPopupComponent]
 })
 export class AppModule { }
